@@ -1,0 +1,139 @@
+Setup Steps
+Setup wifi in GUI
+login to vnc in GUI
+
+
+-Update and Install stuff
+-Tmux for panes, htop for viewing resources
+-Fail2Ban blocks ip's with failed login attempts.
+-Openssh-server for generating keys
+-Software-properties-common just for potential dependencies
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install htop -y
+    sudo apt-get install tmux -y
+    sudo apt-get install vim -y
+    sudo apt-get install fail2ban -y
+    sudo systemctl start fail2ban
+    sudo systemctl enable fail2ban
+
+    sudo apt-get install software-properties-common
+    sudo apt-get install openssh-server
+
+-download .vimrc tmux and .bashrc
+    curl -JO 'http://extol.c1.biz/files/.bashrc'
+    source .bashrc
+    curl -JO 'http://extol.c1.biz/files/.gitconfig'
+    curl -JO 'http://extol.c1.biz/files/.tmux.conf'
+    curl 'http://extol.c1.biz/files/.vimrc_lite' -o ~/.vimrc
+    curl -JO 'http://extol.c1.biz/files/tmux.md.txt'
+    curl -JO 'http://extol.c1.biz/files/tmux-cheatsheet.txt'
+    curl -JO 'http://extol.c1.biz/files/java_setup.sh'
+    curl -JO 'http://extol.c1.biz/files/linux_setup.txt'
+
+-Tweak .bashrc, change color=auto to --color=auto if relevant.
+
+
+-Change hostname from default of 'raspberrypi'
+    sudo vim /etc/hostname
+    sudo vim /etc/hosts
+-Then restart
+    sudo shutdown -r now
+
+-Check space available
+    df -h
+-Check Local IP    
+  ifconfig | grep inet
+-Enable SSH, update apt-get
+    sudo raspi-config
+
+
+-ssh key setup
+    cd ~
+    mkdir ~/.ssh
+    chmod 700 .ssh
+-Create keys and add public key to ~/.ssh/authorized_keys
+
+
+
+-Manually disable password login to ssh
+    sudo vi /etc/ssh/sshd_config 
+-Reset ssh daemon to update login requirements
+    sudo systemctl reload sshd
+
+-Overclocking can be accomplished
+sudo vim /boot/config.txt
+Add... 
+    arm_freq=1500
+    over_voltage=2
+
+-Check performance
+    sudo apt-get install stress -y
+-Check if throttled
+    vcgencmd get_throttled
+    watch -n 0.5 vcgencmd measure_clock arm
+    stress --cpu 1
+
+
+
+# Disabling bluetooth and wifi
+    sudo vim /boot/config.txt
+    dtoverlay=pi3-disable-bt
+    dtoverlay=pi3-disable-wifi
+
+-Disable bluetooth services
+    sudo systemctl disable bluetooth.service
+    sudo systemctl disable bluealsa.service
+    sudo systemctl disable hciuart.service
+
+
+RPI info
+    pinout
+
+    Ctrl-C to escape a program
+    jobs to view jobs
+    fg 1 or bg 1 to restart job
+    cmd & to run in background straight away.
+
+
+-Save some memory
+    sudo raspi-config
+    Remove splash screen
+    boot to cli, no auto login
+
+-Install Docker
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo sh get-docker.sh 
+    sudo usermod -aG docker ${USER}
+    docker --version
+
+
+-Docker operation
+    run hello-world
+    docker run wordpress
+    docker container ls
+    docker container ls -a
+    docker container rm affectionate_greider 
+    docker container rm infallible_hawking thirsty_boyd adoring_haslett stupefied_diffie 
+    docker container stop friendly_neumann 
+    docker container start friendly_neumann 
+    docker image ls
+    docker image rm hello-world:latest 
+    docker container stop nifty_sinoussi 
+    docker run -p 80:80 wordpress
+
+-Make website directory with Dockerfile
+    mkdir ~/website
+    cd ~/website
+    ls
+    echo 'Hello World' >> Dockerfile
+
+
+-Folder setup, cloning git repos, add softlinks
+    mkdir ~/Documents/SkunkApeWorks
+    cd ~/Documents/SkunkApeWorks
+    git clone https://github.com/SkunkApeWorks/native-http.server-RPi-GPIO.git
+    ln -s /home/pi/Documents/SkunkApeWorks/native-http.server-RPi-GPIO/ ~/simpleHTTP
+    ln -s /home/pi/Documents/SkunkApeWorks/ ~/SkunkWorks
+
+
