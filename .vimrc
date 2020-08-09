@@ -1,5 +1,5 @@
 
-" set ff=unix " new, for compatibility
+set ff=unix " new, for compatibility
 
 " Git Commit Help :
 " autocmd Filetype gitcommit spell textwidth=72

@@ -6,10 +6,9 @@
 	name = AJTrowell
 	email = ajtrowell@gmail.com
 [core]
-	autocrlf = true
-	safecrlf = false    # This supresses a warning message on commit.
+        #autocrlf = true
+        #safecrlf = false    # This supresses a warning message on commit.
 	editor = vim
-	# -u ~/.vimrc_bash
 [alias]
 	co = checkout
 	br = branch
