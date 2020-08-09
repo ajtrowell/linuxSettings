@@ -142,3 +142,8 @@ RPI info
     git clone https://github.com/ajtrowell/linuxSettings.git
 
 
+    git remote add origin https://github.com/ajtrowell/linuxSettings.git
+or
+    git remote add origin git@github.com:ajtrowell/linuxSettings.git
+    git push -u origin master
+

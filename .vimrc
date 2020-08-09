@@ -4,10 +4,15 @@ set ff=unix " new, for compatibility
 " Git Commit Help :
 " autocmd Filetype gitcommit spell textwidth=72
 
+" Run in python3
 imap <f5> <Esc>:w<CR>:!clear;python3 %<CR>
-map <f5> <Esc>:w<CR>:!clear;python3 %<CR>
+map  <f5> <Esc>:w<CR>:!clear;python3 %<CR>
 imap <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
 map  <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
+" Works, imap and map didn't seem to.
+nnoremap <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
+" Python Debug with pdb
+nnoremap <leader>d <Esc>:w<CR>:!clear;python3 -m pdb %<CR>
 
 filetype off
 filetype plugin indent on
