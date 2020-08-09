@@ -4,6 +4,11 @@
 " Git Commit Help :
 " autocmd Filetype gitcommit spell textwidth=72
 
+imap <f5> <Esc>:w<CR>:!clear;python3 %<CR>
+map <f5> <Esc>:w<CR>:!clear;python3 %<CR>
+imap <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
+map  <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
+
 filetype off
 filetype plugin indent on
 set nocompatible
