@@ -2,6 +2,7 @@
 
 cp ~/.vimrc .vimrc
 cp ~/.bashrc .bashrc
+cp ~/.bash_profile .bash_profile
 cp ~/.gitconfig .gitconfig
 cp ~/.tmux.conf .tmux.conf
 cp ~/tmux.md.txt tmux.md.txt
