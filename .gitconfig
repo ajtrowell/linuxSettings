@@ -1,0 +1,28 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = AJTrowell
+	email = ajtrowell@gmail.com
+[core]
+	autocrlf = true
+	safecrlf = false    # This supresses a warning message on commit.
+	editor = vim
+	# -u ~/.vimrc_bash
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	visual = !gitk
+        logg = log --graph --pretty=format:\"%C(yellow) %h %Creset - %an, %ar : %s\"
+        logl = log --graph --pretty=format:\"%C(yellow) %h %Cred %d %Creset - %an, %ar : %s\"
+        logm = log --pretty=format:\"%C(yellow) %h %Cred %d %Creset %s\"
+
+        # Show ALL BRANCHES
+        loga = log --branches --remotes --tags --graph --pretty=format:\"%C(yellow) %h %Cred %d %Creset - %an, %ar : %s\"
+
+        

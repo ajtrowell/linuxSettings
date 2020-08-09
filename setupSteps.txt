@@ -137,3 +137,8 @@ RPI info
     ln -s /home/pi/Documents/SkunkApeWorks/ ~/SkunkWorks
 
 
+-Cloning git for linuxSetup repository
+    cd ~
+    git clone https://github.com/ajtrowell/linuxSettings.git
+
+
