@@ -6,6 +6,7 @@ echo "Bash Init Run"
 # Basic shortcuts
 alias x='exit'
 alias c='clear'
+alias restart='sudo shutdown -r now'
 
 # Navigate up directory tree
 alias ..='cd ..'
