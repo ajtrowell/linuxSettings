@@ -9,6 +9,7 @@
         #autocrlf = true
         #safecrlf = false    # This supresses a warning message on commit.
 	editor = vim
+	autocrlf = input
 [alias]
 	co = checkout
 	br = branch
