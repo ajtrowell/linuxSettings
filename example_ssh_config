@@ -1,0 +1,8 @@
+AddKeysToAgent yes
+
+Host github.com-pi
+    HostName github.com
+    PreferredAuthentications publickey
+    User git
+    IdentityFile ~/.ssh/rpi_key
+
