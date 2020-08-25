@@ -13,6 +13,7 @@ map  <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
 nnoremap <leader>r <Esc>:w<CR>:!clear;python3 %<CR>
 " Python Debug with pdb
 nnoremap <leader>d <Esc>:w<CR>:!clear;python3 -m pdb %<CR>
+nnoremap <f6> <Esc>:w<CR>:!clear;python3 -m pdb %<CR>
 
 filetype off
 filetype plugin indent on
@@ -22,6 +23,7 @@ set number
 " set autoread "loads external file changes automatically
 set shiftwidth=4
 set softtabstop=4
+set tabstop=4
 set expandtab
 
 " "Other stuff

@@ -19,7 +19,7 @@ alias .....='cd ../../../..'
 alias  l='ls -CF --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -a --color=auto'
-alias ll='ls -al --color=auto'
+alias ll='ls -alh --color=auto'
 alias ld='ls -d */ --color=auto' # List directories
 
 # cd store and cd recall to jump back to a directory.
