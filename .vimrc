@@ -156,4 +156,12 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 " let g:gundo_right = 0
 " let g:gundo_preview_bottom = 0
 " let g:gundo_help = 1
+"
+"
+" Buffers
+" :ls to list buffers
+" :b1 to switch to buffer 1
+" :bd to delete the current buffer
+" :bn for next buffer
+" :bp for previous buffer
 

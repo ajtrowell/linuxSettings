@@ -44,3 +44,4 @@ alias   cdc='cd /c/'
 
 # clear screen and show git diff
 alias gdf='clear && git diff'
+alias py3='python3'
