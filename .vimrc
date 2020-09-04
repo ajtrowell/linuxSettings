@@ -1,4 +1,3 @@
-
 set ff=unix " new, for compatibility
 
 " Git Commit Help :
@@ -21,15 +20,39 @@ set nocompatible
 set modelines=0
 set number
 " set autoread "loads external file changes automatically
-set shiftwidth=4
-set softtabstop=4
+
+
 set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set textwidth=79
+set colorcolumn=85
 set expandtab
+set autoindent
+
+au BufNewFile,BufRead *.py
+    \set tabstop=4
+    \set softtabstop=4
+    \set shiftwidth=4
+    \set textwidth=79
+    \set colorcolumn=85
+    \set expandtab
+    \set autoindent
+
+
+au BufNewFile,BufRead *.js, *.html, *.css
+    \set tabstop=2
+    \set softtabstop=2
+    \set shiftwidth=2
+    \set textwidth=79
+    \set colorcolumn=85
+    \set expandtab
+    \set autoindent
+
 
 " "Other stuff
 set encoding=utf-8
 set scrolloff=3
-set autoindent
 set showmode
 set showcmd
 set hidden
@@ -41,6 +64,8 @@ set ttyfast
 set ruler
 set backspace=indent,eol,start
 set laststatus=2
+set wrap
+set formatoptions=qrn1
 " "set relativenumber
 " set undofile "creates undo list that works after closing the file.
 " set undodir=~\vimfiles\undodir
@@ -68,10 +93,6 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <tab> %
 vnoremap <tab> %
 
-set wrap
-set textwidth=79
-set formatoptions=qrn1
-set colorcolumn=85
 
 " "Strip all trailing whitespace in the file
 " nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -126,6 +147,81 @@ autocmd FileType vim              let b:comment_leader = '" '
 autocmd FileType sprak            let b:comment_leader = '# '
 noremap <silent> ,cc :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:nohlsearch<CR>
 noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:nohlsearch<CR>
+
+
+
+
+" Code Folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
+" Flag bad whitespace
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" YouCompleteMe customizations
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+" Pretty code
+let python_highlight_all=1
+syntax on
+
+" Vundle
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8' "PEP 8 checking
+Plugin 'jnurmine/Zenburn' " terminal color scheme (not working?)
+Plugin 'scrooloose/nerdtree' " File explorer
+Plugin 'kien/ctrlp.vim' " Super Search Ctrl + P
+Plugin 'tpope/vim-fugitive' " Git integration
+
+
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" :PluginInstall is the command required
+"
+colorscheme zenburn
+
+"******************************************************************************
+"https://realpython.com/vim-and-python-a-match-made-in-heaven/
+"Vundle Install
+"git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"
+"You Complete me Install
+"https://github.com/ycm-core/YouCompleteMe#linux-64-bit
+" -Linux 64-bit
+" -Quick start, installing all completers
+" -Install YCM plugin via Vundle
+" -Install cmake, vim and python
+" $ apt install build-essential cmake vim python3-dev
+" -Install mono-complete, go, node and npm
+" $ cd ~/.vim/bundle/YouCompleteMe
+" $ python3 install.py --all
+"******************************************************************************
 
 
 " " One key <F7> does everything. Good for inter-window copying and pasting.
