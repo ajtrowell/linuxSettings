@@ -164,4 +164,10 @@ noremap <silent> ,cu :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<
 " :bd to delete the current buffer
 " :bn for next buffer
 " :bp for previous buffer
+"
+" SPlits
+" :split to make a horizontal split
+" :vsplit to make a vertical split
+" :sb1 will split horizontally with buffer 1
+" :vert sb1 will split vertically with buffer 1
 
