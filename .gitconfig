@@ -24,5 +24,11 @@
 
         # Show ALL BRANCHES
         loga = log --branches --remotes --tags --graph --pretty=format:\"%C(yellow) %h %Cred %d %Creset - %an, %ar : %s\"
+	# Push branch to origin, creating the upstream branch for the first time
+        pushup = "!branch=\"$(git symbolic-ref --short HEAD)\"; git push -u origin \"$branch\""
+	# Fetch main without checking it out, so the current branch can merge with the latest.
+        pullmain  = "fetch origin main:main"
+	# Show Branch
+        sb = "branch --show-current"
 
         
